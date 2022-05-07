@@ -1,0 +1,16 @@
+select 'Emp'as Tbl_Name ,count(Emp_Id) as empidcnt,min(Emp_Id)as empidmin,max(Emp_Id)as empidmax,sum(Emp_Id)as empidsum,
+        avg(Emp_Id)as empidavg, count(Salary) as salcnt,min(Salary)as salmin,max(Salary)as salmax,sum(Salary)as salsum,
+		avg(Salary)as salavg, count(distinct trim(lower(Emp_Name))) as empnamecnt,min(trim(lower(Emp_Name)))as empnamemin,
+		max(trim(lower(Emp_Name)))as empnamemax, sum(len(trim(lower(Emp_Name))))as empnamesum,
+		avg(len(trim(lower(Emp_Name))))as empnameavg, count(distinct trim(lower(Designation))) 
+		as descnt,min(trim(lower(Designation)))as desminval,max(trim(lower(Designation)))as desmaxval,
+		sum(len(trim(lower(Designation))))as dessum,avg(len(trim(lower(Designation))))as desavg, 
+		count(distinct trim(lower(Department))) as depcnt,min(trim(lower(Department)))as depmin,max(trim(lower(Department)))as depmax,
+		sum(len(trim(lower(Department))))as depsum,avg(len(trim(lower(Department))))as depavg,
+		count(distinct trim(lower(City))) as citycnt,min(trim(lower(City)))as citymin,max(trim(lower(City)))as citymax,
+		sum(len(trim(lower(City))))as citysum,avg(len(trim(lower(City))))as cityavg,
+		count(DATEDIFF(s, '1970-01-01 00:00:00', Joining_Date))as joindtecnt,
+		min(DATEDIFF(s, '1970-01-01 00:00:00', Joining_Date))as joindtemin,
+		max(DATEDIFF(s, '1970-01-01 00:00:00', Joining_Date))as joindtemax,
+		sum(DATEDIFF(s, '1970-01-01 00:00:00', Joining_Date)* convert(bigint, 1000))as joindtesum,
+		avg(DATEDIFF(s, '1970-01-01 00:00:00', Joining_Date)* convert(bigint, 1000))as joindteavg from EMP
