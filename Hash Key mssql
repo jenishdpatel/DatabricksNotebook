@@ -1,0 +1,1 @@
+sql_disqry ="(SELECT Emp_Id, lower(CONVERT(NVARCHAR(256), HASHBYTES('Sha2_256', CONCAT(Emp_Id, Emp_name, Designation, Department, City, Salary,DATEDIFF(s, '1970-01-01 00:00:00', Joining_Date))),2)) as Hash_Key FROM {})".format(Source_Table_Name)
