@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<title>
+
+    Pyscript : Show Table in Browser
+    
+</title>
+
+ <!-- Pyscript -->
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="df_style.css"/>-->
+    
+    <link rel="stylesheet" type="text/css" href="df_style.css"/>
+
+<!---pyodide--> 
+
+<py-env>
+    - pandas
+</py-env>
+
+</head>
+
+<body>
+  
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'col_name' : ['order_id', 'order_item_id', 'product_id', 'seller_id', 'shipping_limit_date', 'price', 'freight_value', 'updated_datetime'],
+        'data_type' : ['string', 'int', 'string', 'string', 'timestamp', 'decimal', 'decimal', 'timestamp']}
+
+        df = pd.DataFrame(dict)
+
+        pyscript.write('data',df.set_index('col_name').T.to_html(classes="mystyle"))
+
+    </py-script>	
+
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: 'count', 1: 'min_order_id', 2: 'max_order_id', 3: 'count_distinct_order_id', 4: 'sum_len_order_id', 5: 'min_order_item_id', 6: 'max_order_item_id', 7: 'sum_order_item_id', 8: 'avg_order_item_id', 9: 'min_product_id', 10: 'max_product_id', 11: 'count_distinct_product_id', 12: 'sum_len_product_id', 13: 'min_seller_id', 14: 'max_seller_id', 15: 'count_distinct_seller_id', 16: 'sum_len_seller_id', 17: 'min_shipping_limit_date', 18: 'max_shipping_limit_date', 19: 'sum_shipping_limit_date', 20: 'avg_shipping_limit_date', 21: 'min_price', 22: 'max_price', 23: 'sum_price', 24: 'avg_price', 25: 'min_freight_value', 26: 'max_freight_value', 27: 'sum_freight_value', 28: 'avg_freight_value', 29: 'min_updated_datetime', 30: 'max_updated_datetime', 31: 'sum_updated_datetime', 32: 'avg_updated_datetime'}, 'val': {0: 112279, 1: '00010242fe8c5a6d1ba2dd792cb16214', 2: 'fffe41c64501cc87c801fd61db3f6244', 3: 98353, 4: 3592928, 5: 1, 6: 21, 7: 134467, 8: 1, 9: '00066f42aeeb9f3007548bb9d3f33c38', 10: 'fffe9eeff12fcbd74a2f2b007dde0c58', 11: 32787, 12: 3592928, 13: '0015a82c2db000af6aaaf3ae2ecb0532', 14: 'ffff564a4f9085cd26170f4732393726', 15: 3068, 16: 3592928, 17: 1483962966, 18: 1586471708, 19: 170155140327845, 20: 1515467187, 21: 0.85, 22: 6735.0, 23: 13541712.78, 24: 120.607707, 25: 0.0, 26: 409.68, 27: 2244490.79, 28: 19.990299, 29: 1485907199, 30: 1535759999, 31: 170238287148521, 32: 1516207724}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datas',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: 'count', 1: 'min_order_id', 2: 'max_order_id', 3: 'count_distinct_order_id', 4: 'sum_len_order_id', 5: 'min_order_item_id', 6: 'max_order_item_id', 7: 'sum_order_item_id', 8: 'avg_order_item_id', 9: 'min_product_id', 10: 'max_product_id', 11: 'count_distinct_product_id', 12: 'sum_len_product_id', 13: 'min_seller_id', 14: 'max_seller_id', 15: 'count_distinct_seller_id', 16: 'sum_len_seller_id', 17: 'min_shipping_limit_date', 18: 'max_shipping_limit_date', 19: 'sum_shipping_limit_date', 20: 'avg_shipping_limit_date', 21: 'min_price', 22: 'max_price', 23: 'sum_price', 24: 'avg_price', 25: 'min_freight_value', 26: 'max_freight_value', 27: 'sum_freight_value', 28: 'avg_freight_value', 29: 'min_updated_datetime', 30: 'max_updated_datetime', 31: 'sum_updated_datetime', 32: 'avg_updated_datetime'}, 'val': {0: 112279, 1: '00010242fe8c5a6d1ba2dd792cb16214', 2: 'fffe41c64501cc87c801fd61db3f6244', 3: 98353, 4: 3592928, 5: 1, 6: 21, 7: 134467, 8: 1.197614870100375, 9: '00066f42aeeb9f3007548bb9d3f33c38', 10: 'fffe9eeff12fcbd74a2f2b007dde0c58', 11: 32787, 12: 3592928, 13: '0015a82c2db000af6aaaf3ae2ecb0532', 14: 'ffff564a4f9085cd26170f4732393726', 15: 3068, 16: 3592928, 17: 1483962966, 18: 1586471708, 19: 170155140327845, 20: 1515467187.3444278, 21: '0.8500', 22: '6735.0000', 23: '13541712.7800', 24: '120.60770741', 25: '0.0000', 26: '409.6800', 27: '2244490.7900', 28: '19.99029908', 29: 1485907199, 30: 1535759999, 31: 170238287148521, 32: 1516207724.9398463}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datat',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: 'count', 1: 'min_order_id', 2: 'max_order_id', 3: 'count_distinct_order_id', 4: 'sum_len_order_id', 5: 'min_order_item_id', 6: 'max_order_item_id', 7: 'sum_order_item_id', 8: 'avg_order_item_id', 9: 'min_product_id', 10: 'max_product_id', 11: 'count_distinct_product_id', 12: 'sum_len_product_id', 13: 'min_seller_id', 14: 'max_seller_id', 15: 'count_distinct_seller_id', 16: 'sum_len_seller_id', 17: 'min_shipping_limit_date', 18: 'max_shipping_limit_date', 19: 'sum_shipping_limit_date', 20: 'avg_shipping_limit_date', 21: 'min_price', 22: 'max_price', 23: 'sum_price', 24: 'avg_price', 25: 'min_freight_value', 26: 'max_freight_value', 27: 'sum_freight_value', 28: 'avg_freight_value', 29: 'min_updated_datetime', 30: 'max_updated_datetime', 31: 'sum_updated_datetime', 32: 'avg_updated_datetime'}, 'val': {0: 112279, 1: '00010242fe8c5a6d1ba2dd792cb16214', 2: 'fffe41c64501cc87c801fd61db3f6244', 3: 98353, 4: 3592928, 5: 1, 6: 21, 7: 134467, 8: 1.197614870100375, 9: '00066f42aeeb9f3007548bb9d3f33c38', 10: 'fffe9eeff12fcbd74a2f2b007dde0c58', 11: 32787, 12: 3592928, 13: '0015a82c2db000af6aaaf3ae2ecb0532', 14: 'ffff564a4f9085cd26170f4732393726', 15: 3068, 16: 3592928, 17: 1483962966, 18: 1586471708, 19: 170155140327845, 20: 1515467187.3444278, 21: '0.8500', 22: '6735.0000', 23: '13541712.7800', 24: '120.60770741', 25: '0.0000', 26: '409.6800', 27: '2244490.7900', 28: '19.99029908', 29: 1485907199, 30: 1535759999, 31: 170238287148521, 32: 1516207724.9398463}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datac',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: 'count', 1: 'min_order_id', 2: 'max_order_id', 3: 'count_distinct_order_id', 4: 'sum_len_order_id', 5: 'min_order_item_id', 6: 'max_order_item_id', 7: 'sum_order_item_id', 8: 'avg_order_item_id', 9: 'min_product_id', 10: 'max_product_id', 11: 'count_distinct_product_id', 12: 'sum_len_product_id', 13: 'min_seller_id', 14: 'max_seller_id', 15: 'count_distinct_seller_id', 16: 'sum_len_seller_id', 17: 'min_shipping_limit_date', 18: 'max_shipping_limit_date', 19: 'sum_shipping_limit_date', 20: 'avg_shipping_limit_date', 21: 'min_price', 22: 'max_price', 23: 'sum_price', 24: 'avg_price', 25: 'min_freight_value', 26: 'max_freight_value', 27: 'sum_freight_value', 28: 'avg_freight_value', 29: 'min_updated_datetime', 30: 'max_updated_datetime', 31: 'sum_updated_datetime', 32: 'avg_updated_datetime'}, 'val': {0: 112279, 1: '00010242fe8c5a6d1ba2dd792cb16214', 2: 'fffe41c64501cc87c801fd61db3f6244', 3: 98353, 4: 3592928, 5: 1, 6: 21, 7: 134467, 8: 1.197614870100375, 9: '00066f42aeeb9f3007548bb9d3f33c38', 10: 'fffe9eeff12fcbd74a2f2b007dde0c58', 11: 32787, 12: 3592928, 13: '0015a82c2db000af6aaaf3ae2ecb0532', 14: 'ffff564a4f9085cd26170f4732393726', 15: 3068, 16: 3592928, 17: 1483962966, 18: 1586471708, 19: 170155140327845, 20: 1515467187.3444278, 21: '0.8500', 22: '6735.0000', 23: '13541712.7800', 24: '120.60770741', 25: '0.0000', 26: '409.6800', 27: '2244490.7900', 28: '19.99029908', 29: 1485907199, 30: 1535759999, 31: 170238287148521, 32: 1516207724.9398463}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datash',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: 'count', 1: 'min_order_id', 2: 'max_order_id', 3: 'count_distinct_order_id', 4: 'sum_len_order_id', 5: 'min_order_item_id', 6: 'max_order_item_id', 7: 'sum_order_item_id', 8: 'avg_order_item_id', 9: 'min_product_id', 10: 'max_product_id', 11: 'count_distinct_product_id', 12: 'sum_len_product_id', 13: 'min_seller_id', 14: 'max_seller_id', 15: 'count_distinct_seller_id', 16: 'sum_len_seller_id', 17: 'min_shipping_limit_date', 18: 'max_shipping_limit_date', 19: 'sum_shipping_limit_date', 20: 'avg_shipping_limit_date', 21: 'min_price', 22: 'max_price', 23: 'sum_price', 24: 'avg_price', 25: 'min_freight_value', 26: 'max_freight_value', 27: 'sum_freight_value', 28: 'avg_freight_value', 29: 'min_updated_datetime', 30: 'max_updated_datetime', 31: 'sum_updated_datetime', 32: 'avg_updated_datetime'}, 'val': {0: 112279, 1: '00010242fe8c5a6d1ba2dd792cb16214', 2: 'fffe41c64501cc87c801fd61db3f6244', 3: 98353, 4: 3592928, 5: 1, 6: 21, 7: 134467, 8: 1.197614870100375, 9: '00066f42aeeb9f3007548bb9d3f33c38', 10: 'fffe9eeff12fcbd74a2f2b007dde0c58', 11: 32787, 12: 3592928, 13: '0015a82c2db000af6aaaf3ae2ecb0532', 14: 'ffff564a4f9085cd26170f4732393726', 15: 3068, 16: 3592928, 17: 1483962966, 18: 1586471708, 19: 170155140327845, 20: 1515467187.3444278, 21: '0.8500', 22: '6735.0000', 23: '13541712.7800', 24: '120.60770741', 25: '0.0000', 26: '409.6800', 27: '2244490.7900', 28: '19.99029908', 29: 1485907199, 30: 1535759999, 31: 170238287148521, 32: 1516207724.9398463}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datath',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+    
+</body>
+    <center> <b>Display Table Schema</b></center>
+    <p id="data"></p>
+    <center> <b>Display Source Count,Min,Max,Sum,Avg Data</b></center>
+    <p id="datas"></p>
+    <center> <b>Display Target Count,Min,Max,Sum,Avg Data</b></center>
+    <p id="datat"></p>
+    <center> <b>Match Source & Target Count,Min,Max,Sum,Avg Data</b></center>
+    <p id="datac"></p>
+    <center> <b>Display Target Hash Keys Data</b></center>
+    <p id="datash"></p>
+    <center> <b>Display Source Hash Keys Data</b></center>
+    <p id="datath"></p>
+</html>
