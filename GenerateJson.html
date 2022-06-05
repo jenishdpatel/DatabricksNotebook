@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <title>
+      <center> <b>Generate JsonFile</b></center>     
+  </title>
+
+</head>
+<style>
+     .mystyle table {
+                   border-collapse: collapse;
+               margin: 0px auto; 
+               
+               }
+               .mystyle th {
+                   background-color:#d7e9d1;
+               }
+              .mystyle th, td {
+                   
+                   text-align:center;
+                   border:1px solid black;
+                   padding:5px;
+                   Color:solid black;
+                   
+               }
+               
+               .mystyle {
+                   border-collapse:separate;
+                   border-spacing:0 15px;
+               }
+               .mystyle h1 {
+                   color:green;
+               }
+   body {
+     background-color: #d7e9d1;
+   }			
+	 
+    input[type=submit] {
+      width: 50%;
+      background-color: #d7e9d1;
+      color: black;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    p {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    </style>
+
+<body>
+ 
+    <table align="center" style="margin: 0px auto;">
+        <form onsubmit="return false">
+            <tr>
+                <td>
+                    <label for="table_name">Table name:</label>
+                </td> 
+                <td>
+                    <textarea rows="4" cols="50" type="text" id="table_name" name="table_name"> </textarea>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                   <label for="column_name">Column name:</label>
+                </td>
+                <td>
+                   <textarea rows="4" cols="50 type="text" id="column_name" name="column_name"> </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label for="source_function">Source function:</label>
+                </td>
+                <td>
+                   <textarea rows="4" cols="50 type="text" id="source_function" name="source_function"> </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label for="target_function">Target function:</label>
+                </td>
+                <td>
+                   <textarea rows="4" cols="50 type="text" id="target_function" name="target_function"> </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label for="filter_column">Filter column:</label>
+                </td>
+                <td>
+                   <textarea rows="4" cols="50 type="text" id="filter_column" name="filter_column"> </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label for="grain_cols">Grain cols:</label>
+                </td>
+                <td>
+                   <textarea rows="4" cols="50 type="text" id="grain_cols" name="grain_cols"> </textarea>
+                </td>
+            </tr>
+		</form>
+		    <tr>
+                <td colspan="2">
+                   <input pys-onClick="my_function" type="submit" id="btn-form" value="Generate Json">
+                </td>
+            </tr>
+    </table>
+    <p>Output:</p>
+    <p id = 'output'></p>
+
+<py-script>
+
+def my_function(*args, **kwargs):
+    
+    tn = Element('table_name').value
+    cn = Element('column_name').value
+    sf = Element('source_function').value
+    tf = Element('target_function').value
+    fc = Element('filter_column').value
+    gc = Element('grain_cols').value
+    opn = "{"
+    clse = "}"
+    sfop = '"source_function": {'
+    tfop = '"target_function": {'
+    fcl = "},"
+    frmcn = cn.split(",")
+    fnltn = '"table_name": "{}",'.format(tn)
+    fnlcn = '"column_name": {},'.format(frmcn)
+    fnlsf = '"shipping_limit_date": "{}", "updated_datetime": "{}"'.format(sf, sf)
+    fnltf = '"shipping_limit_date": "{}", "updated_datetime": "{}"'.format(tf, tf)
+    fnlfc = '"filter_column": "updated_datetime <= "{}"",'.format(fc)
+    fnlgc = '"grain_cols": "{}"'.format(gc)  
+    result_place = Element('output')
+    result_place.write(f"{opn + fnltn} {fnlcn} {sfop + fnlsf + fcl} {tfop + fnltf + fcl} {fnlfc} {fnlgc + clse}")
+</py-script>
+
+  </body>
+</html>
