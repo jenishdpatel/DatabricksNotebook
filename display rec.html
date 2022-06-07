@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<title>
+
+    Pyscript : Show Table in Browser
+    
+</title>
+
+ <!-- Pyscript -->
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="df_style.css"/>-->
+    
+    <link rel="stylesheet" type="text/css" href="df_style.css"/>
+
+<!---pyodide--> 
+
+<py-env>
+    - pandas
+</py-env>
+
+</head>
+
+<body>
+  
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'col_name': {0: 'order_id', 1: 'order_item_id', 2: 'product_id', 3: 'seller_id', 4: 'shipping_limit_date', 5: 'price', 6: 'freight_value', 7: 'updated_datetime'}, 'data_type': {0: 'string', 1: 'int', 2: 'string', 3: 'string', 4: 'timestamp', 5: 'decimal', 6: 'decimal', 7: 'timestamp'}}
+
+        df = pd.DataFrame(dict)
+
+        pyscript.write('data',df.set_index('col_name').T.to_html(classes="mystyle"))
+
+    </py-script>	
+
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: 'count', 1: 'min_order_id', 2: 'max_order_id', 3: 'count_distinct_order_id', 4: 'sum_len_order_id', 5: 'min_order_item_id', 6: 'max_order_item_id', 7: 'sum_order_item_id', 8: 'avg_order_item_id', 9: 'min_product_id', 10: 'max_product_id', 11: 'count_distinct_product_id', 12: 'sum_len_product_id', 13: 'min_seller_id', 14: 'max_seller_id', 15: 'count_distinct_seller_id', 16: 'sum_len_seller_id', 17: 'min_shipping_limit_date', 18: 'max_shipping_limit_date', 19: 'sum_shipping_limit_date', 20: 'avg_shipping_limit_date', 21: 'min_price', 22: 'max_price', 23: 'sum_price', 24: 'avg_price', 25: 'min_freight_value', 26: 'max_freight_value', 27: 'sum_freight_value', 28: 'avg_freight_value', 29: 'min_updated_datetime', 30: 'max_updated_datetime', 31: 'sum_updated_datetime', 32: 'avg_updated_datetime'}, 'val': {0: 112279, 1: '00010242fe8c5a6d1ba2dd792cb16214', 2: 'fffe41c64501cc87c801fd61db3f6244', 3: 98353, 4: 3592928, 5: 1.0, 6: 21.0, 7: 134467.0, 8: 1.1976, 9: '00066f42aeeb9f3007548bb9d3f33c38', 10: 'fffe9eeff12fcbd74a2f2b007dde0c58', 11: 32787, 12: 3592928, 13: '0015a82c2db000af6aaaf3ae2ecb0532', 14: 'ffff564a4f9085cd26170f4732393726', 15: 3068, 16: 3592928, 17: 1483962966, 18: 1586471708, 19: 170155140327845, 20: 1515467187.344427, 21: 0.85, 22: 6735.0, 23: 13541712.78, 24: 120.6077, 25: 0.0, 26: 409.68, 27: 2244490.79, 28: 19.9903, 29: 1485907199, 30: 1535759999, 31: 170238287148521, 32: 1516207724.939846}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datas',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: 'count', 1: 'min_order_id', 2: 'max_order_id', 3: 'count_distinct_order_id', 4: 'sum_len_order_id', 5: 'min_order_item_id', 6: 'max_order_item_id', 7: 'sum_order_item_id', 8: 'avg_order_item_id', 9: 'min_product_id', 10: 'max_product_id', 11: 'count_distinct_product_id', 12: 'sum_len_product_id', 13: 'min_seller_id', 14: 'max_seller_id', 15: 'count_distinct_seller_id', 16: 'sum_len_seller_id', 17: 'min_shipping_limit_date', 18: 'max_shipping_limit_date', 19: 'sum_shipping_limit_date', 20: 'avg_shipping_limit_date', 21: 'min_price', 22: 'max_price', 23: 'sum_price', 24: 'avg_price', 25: 'min_freight_value', 26: 'max_freight_value', 27: 'sum_freight_value', 28: 'avg_freight_value', 29: 'min_updated_datetime', 30: 'max_updated_datetime', 31: 'sum_updated_datetime', 32: 'avg_updated_datetime'}, 'val': {0: 112279, 1: '00010242fe8c5a6d1ba2dd792cb16214', 2: 'fffe41c64501cc87c801fd61db3f6244', 3: 98353, 4: 3592928, 5: '1.00', 6: '21.00', 7: '134468.00', 8: '1.1976', 9: '00066f42aeeb9f3007548bb9d3f33c38', 10: 'fffe9eeff12fcbd74a2f2b007dde0c58', 11: 32787, 12: 3592928, 13: '0015a82c2db000af6aaaf3ae2ecb0532', 14: 'ffff564a4f9085cd26170f4732393726', 15: 3068, 16: 3592928, 17: 1483962966, 18: 1586471708, 19: 170155140327845, 20: 1515467187.3444278, 21: '0.85', 22: '6735.00', 23: '13541712.78', 24: '120.6077', 25: '0.00', 26: '409.68', 27: '2244490.79', 28: '19.9903', 29: 1485907199, 30: 1535759999, 31: 170238287148521, 32: 1516207724.9398463}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datat',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+
+    <py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: ('sum_order_item_id', 'self'), 1: ('sum_order_item_id', 'other'), 2: ('avg_order_item_id', 'self'), 3: ('avg_order_item_id', 'other'), 4: ('avg_shipping_limit_date', 'self'), 5: ('avg_shipping_limit_date', 'other'), 6: ('min_price', 'self'), 7: ('min_price', 'other'), 8: ('sum_price', 'self'), 9: ('sum_price', 'other'), 10: ('avg_price', 'self'), 11: ('avg_price', 'other'), 12: ('max_freight_value', 'self'), 13: ('max_freight_value', 'other'), 14: ('sum_freight_value', 'self'), 15: ('sum_freight_value', 'other'), 16: ('avg_freight_value', 'self'), 17: ('avg_freight_value', 'other'), 18: ('avg_updated_datetime', 'self'), 19: ('avg_updated_datetime', 'other')}, 'val': {0: 134467.0, 1: '134468.00', 2: 1.1976, 3: '1.1976', 4: 1515467187.344427, 5: 1515467187.3444278, 6: 0.85, 7: '0.85', 8: 13541712.78, 9: '13541712.78', 10: 120.6077, 11: '120.6077', 12: 409.68, 13: '409.68', 14: 2244490.79, 15: '2244490.79', 16: 19.9903, 17: '19.9903', 18: 1516207724.939846, 19: 1516207724.9398463}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datac',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+	
+	<py-script>
+
+        import pandas as pd 
+
+        dict = {'Name': {0: 'Matching_Percentage'}, 'val': {0: 69.69}}
+
+        df = pd.DataFrame(dict)
+		
+        pyscript.write('datap',df.set_index('Name').T.to_html(classes="mystyle"))
+
+    </py-script>
+    
+</body>
+    <center> <b>Display Table Schema</b></center>
+    <p id="data"></p>
+    <center> <b>Display Source Count,Min,Max,Sum,Avg Data</b></center>
+    <p id="datas"></p>
+    <center> <b>Display Target Count,Min,Max,Sum,Avg Data</b></center>
+    <p id="datat"></p>
+    <center> <b>Match Source & Target Count,Min,Max,Sum,Avg Data</b></center>
+    <p id="datac"></p>
+	<center> <b>Match Percentage Source & Target Count,Min,Max,Sum,Avg Data</b></center>
+    <p id="datap"></p>
+    
+</html>
